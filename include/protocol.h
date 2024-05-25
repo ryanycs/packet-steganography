@@ -9,7 +9,6 @@ struct sniff_ethernet {
     unsigned char ether_shost[ETHER_ADDR_LEN]; /* Source host address */
     unsigned short ether_type;                 /* IP? ARP? RARP? etc */
 };
-
 /* ethernet headers are always exactly 14 bytes */
 #define SIZE_ETHERNET 14
 
@@ -56,3 +55,11 @@ struct sniff_tcp {
     unsigned short th_sum; /* checksum */
     unsigned short th_urp; /* urgent pointer */
 };
+
+struct sniff_udp {
+    unsigned short uh_sport; /* source port */
+    unsigned short uh_dport; /* destination port */
+    unsigned short uh_len;   /* udp length */
+    unsigned short uh_sum;   /* udp checksum */
+};
+#define SIZE_UDP 8
